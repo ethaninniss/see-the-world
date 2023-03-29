@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Flight Search</title>
+    <!--testing footer-->
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--test-->
     <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
   <body>
@@ -22,38 +27,68 @@
 
 <section id="hero">
 		<div id="mast">
-				<h1><img src="https://th.bing.com/th/id/R.7b25c61553bb356f5e96798e076e0c64?rik=rhIADfMpq5z3SQ&pid=ImgRaw&r=0" alt="bus" /></h1>
+				<h1><img src="https://i.pinimg.com/originals/ef/75/6c/ef756cbe6b205f7d3c7fa0164866f168.gif" alt="bus" /></h1>
 				<h2>Let's Travel</h2>
 		</div>
 		<div class="arrow"><a data-scroll data-speed="750" data-easing="easeInOutCubic" data-url="false" href="#navigation"><i class="fa fa-angle-down"></i></a></div>
 </section>
 
-<section id="navigation">
-		<div class="block">
+<!--<section id="navigation">-->
+<!--		<div class="block">-->
 				
-				<nav role='navigation'>
-						<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="#">Clients</a></li>
+<!--				<nav role='navigation'>-->
+<!--						<ul>-->
+<!--								<li><a href="#">Home</a></li>-->
+<!--								<li><a href="#">About</a></li>-->
+<!--								<li><a href="#">Clients</a></li>-->
 							
-						</ul>
-				</nav>
-		</div>
-</section>
+<!--						</ul>-->
+<!--				</nav>-->
+<!--		</div>-->
+<!--</section>-->
 
-<section id="fullGrid">
-		<h2 class="sectionHeader">-</h2>
+<!--<section id="fullGrid">-->
+<!--		<h2 class="sectionHeader">-</h2>-->
 		
-</section>
+<!--</section>-->
 
-<section id="footer">
-		<p>Made by <a href="">cancepto</a>. <i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></p>
-</section>
+<!--<section id="footer">-->
+<!--		<p>Made by <a href="">cancepto</a>. <i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></p>-->
+<!--</section>-->
 
 
-<!--test-->
+<!--test for lat and long -->
+   <!--<h1>Testing Coordinates with Geoapify Below</h1>-->
+   <!-- <form>-->
+   <!--   <label for="location">Enter a location:</label>-->
+   <!--   <input type="text" id="location" name="location">-->
+   <!--   <button type="button" onclick="getCoordinates()">Show Coordinates</button>-->
+   <!-- </form>-->
+   <!-- <div class ="big" id="coordinates"></div>-->
 
+<!--footer-->
+<footer class="footer" >
+	<div class="waves">
+		<div class="wave" id="wave1"></div>
+		<div class="wave" id="wave2"></div>
+		<div class="wave" id="wave3"></div>
+		<div class="wave" id="wave4"></div>
+	</div>
+
+	<ul class="menu">
+		<li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+		<li class="menu__item"><a class="menu__link" href="#">About us</a></li>
+		<li class="menu__item"><a class="menu__link" href="#">Contact us</a></li>
+
+
+	</ul>
+	<p style="opacity: 0.75;">Made with LOVE🤍</p>
+
+</footer>
+
+
+
+<!--footer-->
 
 
 
@@ -68,6 +103,25 @@
         console.log("Departure Date: " + departureDate);
         console.log("Return Date: " + returnDate);
         console.log("Number of People: " + numPeople);
+      }
+      
+      
+      //cordinates AOT
+      color to test : #0c2954
+          const cordinates = document.getElementById("coordinates")
+      function getCoordinates() {
+        const location = document.getElementById("location").value;
+        const apiKey = "6866adcff55d4e1683cebcfecb9c793b";
+        const url = `https://api.geoapify.com/v1/geocode/search?text=${location}&apiKey=${apiKey}`;
+        
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const latitude = data.features[0].properties.lat
+          const longitude = data.features[0].properties.lon
+            cordinates.innerHTML = `Latitude: ${latitude}, Longitude: ${longitude}`;
+          })
+          
       }
     </script>
   </body>
